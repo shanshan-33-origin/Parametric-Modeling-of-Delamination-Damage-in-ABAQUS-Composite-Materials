@@ -1,5 +1,4 @@
-# -24-Python-
-大连理工大学24年毕业生力航院董珊珊硕士期间自主编写的复合材料分层损伤、裂纹损伤参数化建模及ABAQUS后处理脚本，Python二次开发，把脚本代码直接复制到ABAQUS，软件自动建模、自动创建损伤、自动计算、自动导出计算结果文件
+# 大连理工大学24年毕业生力航院董珊珊硕士期间自主编写的复合材料分层损伤、裂纹损伤参数化建模及ABAQUS后处理脚本，Python二次开发，把脚本代码直接复制到ABAQUS，软件自动建模、自动创建损伤、自动计算、自动导出计算结果文件
 from abaqus import *
 from abaqusConstants import *
 session.Viewport(name='Viewport: 1', origin=(0.0, 0.0), width=328.551544189453, height=189.933334350586)
@@ -332,7 +331,7 @@ for i1 in range(25,num_models):  # 循环创建多个模型和结果文件
     mdb.Job(name=jobName, model='Model-1', description='', type=ANALYSIS, atTime=None, waitMinutes=0, waitHours=0, queue=None, memory=90, memoryUnits=PERCENTAGE, getMemoryFromAnalysis=True, explicitPrecision=SINGLE, nodalOutputPrecision=SINGLE, echoPrint=OFF, modelPrint=OFF, contactPrint=OFF, historyPrint=OFF, userSubroutine='', scratch='', resultsFormat=ODB, multiprocessingMode=DEFAULT, numCpus=32, numDomains=32, numGPUs=0)
     mdb.jobs[jobName].submit(consistencyChecking=OFF)
     mdb.jobs[jobName].waitForCompletion()
-#==================================复制.inp文件===============================
+# ==================================复制.inp文件===============================
     # 定义源文件和目标文件的路径
     source_file = 'Job-1.inp'
     target_file = 'Job-1-fuben-' + str(5) + '.inp'
@@ -343,7 +342,7 @@ for i1 in range(25,num_models):  # 循环创建多个模型和结果文件
         # 复制文件
         shutil.copy2(source_file, target_file)
         print("文件复制成功！")
-#==================================修改.inp文件===============================
+# ==================================修改.inp文件===============================
 # ===================================添加行===================================
     # 输入文件路径
     input_file_path = current_workpath + "\\" + target_file
@@ -455,7 +454,7 @@ for i1 in range(25,num_models):  # 循环创建多个模型和结果文件
         session.viewports['Viewport: 1'].odbDisplay.basicOptions.setValues(sectionPointScheme=PLY_BASED, plyResultLocation=TOP)
         #session.viewports['Viewport: 1'].odbDisplay.setPrimarySectionPoint(sectionPoint={'solid < composite > < elset = ASSEMBLY_PART-1-1_COMPOSITELAYUP-2-1-1 >':('fraction = -0.962963, Layer = 1', 'fraction = 0.962963, Layer = 27'), 'solid < composite > < elset = ASSEMBLY_PART-1-1_COMPOSITELAYUP-1-1-1 >':('fraction = -0.666667, Layer = 1', 'fraction = 0.666667, Layer = 3')})
         #session.viewports['Viewport: 1'].odbDisplay.basicOptions.setValues(sectionResults=USE_TOP, sectionPointScheme=CATEGORY_BASED)
-#==================================获取节点label===============================
+# ==================================获取节点label===============================
         def find_node_labels(coordinate_positions, model_name, part_name):
             # 获取模型和部件对象
             myModel = mdb.models[model_name]
