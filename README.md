@@ -501,12 +501,12 @@ for i1 in range(25,num_models):  # 循环创建多个模型和结果文件
         nodeLabels[35], nodeLabels[36], nodeLabels[37], )), ))
         pth = session.paths['Path-1']
         session.XYDataFromPath(name='XYData-1', path=pth, includeIntersections=True, projectOntoMesh=False, pathStyle=PATH_POINTS, numIntervals=10, projectionTolerance=0, shape=DEFORMED, labelType=X_COORDINATE, removeDuplicateXYPairs=True, includeAllElements=False)# 注意：shape参数我改成了已变形DEFORMED，未变形是UNDEFORMED，之前的脚本都是未变形参数设置的shape=UNDEFORMED，节点分离法的脚本改成了已变形shape=DEFORMED。
-#==================================数据保存至txt or rpt===============================
+# ===================================数据保存至txt or rpt===================================
         x0 = session.xyDataObjects['XYData-1']
         session.xyReportOptions.setValues(numDigits=8)
         Fm = current_workpath + r"\jieguo\abaqus" + str(u) + ".rpt"
         session.writeXYReport(fileName=Fm, xyData=(x0, ))
-#==================================保存模型===============================
+# ===================================保存模型===================================
     mdb.saveAs(pathName=current_workpath + r"\jieguo\test" + str(i1+1))
     filename_xy = "26_50_xy_0_90_2.7.csv"
     # 指定要保存的文件路径
