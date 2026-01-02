@@ -1,4 +1,5 @@
 # 大连理工大学24年毕业生力航院董珊珊硕士期间自主编写的复合材料分层损伤、裂纹损伤参数化建模及ABAQUS后处理脚本，Python二次开发，把脚本代码直接复制到ABAQUS，软件自动建模、自动创建损伤、自动计算、自动导出计算结果文件
+# =================================导入==================================
 from abaqus import *
 from abaqusConstants import *
 session.Viewport(name='Viewport: 1', origin=(0.0, 0.0), width=328.551544189453, height=189.933334350586)
